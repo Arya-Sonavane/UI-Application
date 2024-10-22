@@ -1,0 +1,1 @@
+// Code By own Reference both leading and ending trim code

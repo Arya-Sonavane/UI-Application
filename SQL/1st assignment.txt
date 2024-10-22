@@ -1,0 +1,215 @@
+mysql> show database
+    -> show databases
+    -> ^C
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| april2024          |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> use april2024;
+Database changed
+mysql> show tables;
+Empty set (0.01 sec)
+
+mysql> create table student (sid int(5), student_Name varchar(100),student_Email varchar(100), student_per varchar(5));
+Query OK, 0 rows affected, 1 warning (0.03 sec)
+
+mysql> desc student
+    -> desc student;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'desc student' at line 2
+mysql> select *from student;
+Empty set (0.00 sec)
+
+mysql> show table;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> show tables;
++---------------------+
+| Tables_in_april2024 |
++---------------------+
+| student             |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> select *from student;
+Empty set (0.00 sec)
+
+mysql> desc student;
++---------------+--------------+------+-----+---------+-------+
+| Field         | Type         | Null | Key | Default | Extra |
++---------------+--------------+------+-----+---------+-------+
+| sid           | int          | YES  |     | NULL    |       |
+| student_Name  | varchar(100) | YES  |     | NULL    |       |
+| student_Email | varchar(100) | YES  |     | NULL    |       |
+| student_per   | varchar(5)   | YES  |     | NULL    |       |
++---------------+--------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> insert into student values (1, 'Arya', 'aryasonavane@3321', 60);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into student values (2, 'Vrushali','vrushali@gmail.com','70'),(3, 'tejaswini', 'tejaswini@gmail.com', '80'),(4, 'mayuri','mayuri@gmail.com','78'),(5, 'gauri', 'gauri@gmail.com', '90');
+Query OK, 4 rows affected (0.01 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select *from student;
++------+--------------+---------------------+-------------+
+| sid  | student_Name | student_Email       | student_per |
++------+--------------+---------------------+-------------+
+|    1 | Arya         | aryasonavane@3321   | 60          |
+|    2 | Vrushali     | vrushali@gmail.com  | 70          |
+|    3 | tejaswini    | tejaswini@gmail.com | 80          |
+|    4 | mayuri       | mayuri@gmail.com    | 78          |
+|    5 | gauri        | gauri@gmail.com     | 90          |
++------+--------------+---------------------+-------------+
+5 rows in set (0.00 sec)
+
+mysql> update student set student_per ='92' where sid = 4;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select *from student;
++------+--------------+---------------------+-------------+
+| sid  | student_Name | student_Email       | student_per |
++------+--------------+---------------------+-------------+
+|    1 | Arya         | aryasonavane@3321   | 60          |
+|    2 | Vrushali     | vrushali@gmail.com  | 70          |
+|    3 | tejaswini    | tejaswini@gmail.com | 80          |
+|    4 | mayuri       | mayuri@gmail.com    | 92          |
+|    5 | gauri        | gauri@gmail.com     | 90          |
++------+--------------+---------------------+-------------+
+5 rows in set (0.00 sec)
+
+mysql> delete from student where sid = 3;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select *from student;
++------+--------------+--------------------+-------------+
+| sid  | student_Name | student_Email      | student_per |
++------+--------------+--------------------+-------------+
+|    1 | Arya         | aryasonavane@3321  | 60          |
+|    2 | Vrushali     | vrushali@gmail.com | 70          |
+|    4 | mayuri       | mayuri@gmail.com   | 92          |
+|    5 | gauri        | gauri@gmail.com    | 90          |
++------+--------------+--------------------+-------------+
+4 rows in set (0.00 sec)
+
+mysql> alter table student rename column student_per to percentage;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select *from student;
++------+--------------+--------------------+------------+
+| sid  | student_Name | student_Email      | percentage |
++------+--------------+--------------------+------------+
+|    1 | Arya         | aryasonavane@3321  | 60         |
+|    2 | Vrushali     | vrushali@gmail.com | 70         |
+|    4 | mayuri       | mayuri@gmail.com   | 92         |
+|    5 | gauri        | gauri@gmail.com    | 90         |
++------+--------------+--------------------+------------+
+4 rows in set (0.00 sec)
+
+mysql> alter table rename student to stud;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that correspo
+
+mysql> alter table rename student to stud;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'rename student to stud' at line 1
+mysql> alter table student rename to stud;
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> select *from student;
+ERROR 1146 (42S02): Table 'april2024.student' doesn't exist
+mysql> select *from stud;
++------+--------------+--------------------+------------+
+| sid  | student_Name | student_Email      | percentage |
++------+--------------+--------------------+------------+
+|    1 | Arya         | aryasonavane@3321  | 60         |
+|    2 | Vrushali     | vrushali@gmail.com | 70         |
+|    4 | mayuri       | mayuri@gmail.com   | 92         |
+|    5 | gauri        | gauri@gmail.com    | 90         |
++------+--------------+--------------------+------------+
+4 rows in set (0.00 sec)
+
+mysql> alter table stud add column contact varchar(20);
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select *from stud;
++------+--------------+--------------------+------------+---------+
+| sid  | student_Name | student_Email      | percentage | contact |
++------+--------------+--------------------+------------+---------+
+|    1 | Arya         | aryasonavane@3321  | 60         | NULL    |
+|    2 | Vrushali     | vrushali@gmail.com | 70         | NULL    |
+|    4 | mayuri       | mayuri@gmail.com   | 92         | NULL    |
+|    5 | gauri        | gauri@gmail.com    | 90         | NULL    |
++------+--------------+--------------------+------------+---------+
+4 rows in set (0.00 sec)
+
+mysql> select * from stud where id>=2 and id<=5;
+ERROR 1054 (42S22): Unknown column 'id' in 'where clause'
+mysql> select * from stud where sid>=2 and sid<=5;
++------+--------------+--------------------+------------+---------+
+| sid  | student_Name | student_Email      | percentage | contact |
++------+--------------+--------------------+------------+---------+
+|    2 | Vrushali     | vrushali@gmail.com | 70         | NULL    |
+|    4 | mayuri       | mayuri@gmail.com   | 92         | NULL    |
+|    5 | gauri        | gauri@gmail.com    | 90         | NULL    |
++------+--------------+--------------------+------------+---------+
+3 rows in set (0.00 sec)
+
+mysql> select *from stud where percentage>='60'and percentage<='90';
++------+--------------+--------------------+------------+---------+
+| sid  | student_Name | student_Email      | percentage | contact |
++------+--------------+--------------------+------------+---------+
+|    1 | Arya         | aryasonavane@3321  | 60         | NULL    |
+|    2 | Vrushali     | vrushali@gmail.com | 70         | NULL    |
+|    5 | gauri        | gauri@gmail.com    | 90         | NULL    |
++------+--------------+--------------------+------------+---------+
+3 rows in set (0.00 sec)
+ mysql> select student_Name, percentage, student_Email from stud where sid = 2;
++--------------+------------+--------------------+
+| student_Name | percentage | student_Email      |
++--------------+------------+--------------------+
+| Vrushali     | 70         | vrushali@gmail.com |
++--------------+------------+--------------------+
+1 row in set (0.00 sec)
+                                                                                                                              
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

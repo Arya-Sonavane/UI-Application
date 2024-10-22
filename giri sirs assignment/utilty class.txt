@@ -1,0 +1,13 @@
+class U
+{  private U()
+   {   
+   }
+  static void show(){
+   System.out.println("I am utility class methods");
+   }
+}
+public class UAPP
+{  public static void main(String x[])
+   {   U.show();
+   }
+}

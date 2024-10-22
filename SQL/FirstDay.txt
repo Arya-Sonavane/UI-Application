@@ -1,0 +1,186 @@
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.01 sec)
+
+mysql> create database DB1;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| db1                |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> use DB1;
+Database changed
+mysql> show tables;
+Empty set (0.01 sec)
+
+mysql> create table Student (sid int(5),student_Name varchar(100),student_City varchar(100),student_Contact varchar(100),student_Email);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+mysql> create table Student (sid int(5),student_Name varchar(100),student_City varchar(100),student_Contact varchar(100),student_Email varchar(100));
+Query OK, 0 rows affected, 1 warning (0.03 sec)
+
+mysql> desc student;
++-----------------+--------------+------+-----+---------+-------+
+| Field           | Type         | Null | Key | Default | Extra |
++-----------------+--------------+------+-----+---------+-------+
+| sid             | int          | YES  |     | NULL    |       |
+| student_Name    | varchar(100) | YES  |     | NULL    |       |
+| student_City    | varchar(100) | YES  |     | NULL    |       |
+| student_Contact | varchar(100) | YES  |     | NULL    |       |
+| student_Email   | varchar(100) | YES  |     | NULL    |       |
++-----------------+--------------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+
+mysql> insert into student values (1001,'Ajay','PUNE','8284242322','ajay@gmail.com') ;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into student values (1002,'Vijay','Kolhapur','644242322','vijay@gmail.com') ;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into student values (1003,'ay','Nashik','644242322','vijay@gmail.com'),(1002,'Vijay','Kolhapur','644242322','vijay@gmai
+l.com'),(1002,'Vijay','Kolhapur','644242322','vijay@gmail.com') ;
+Query OK, 3 rows affected (0.01 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select *from student;
++------+--------------+--------------+-----------------+-----------------+
+| sid  | student_Name | student_City | student_Contact | student_Email   |
++------+--------------+--------------+-----------------+-----------------+
+| 1001 | Ajay         | PUNE         | 8284242322      | ajay@gmail.com  |
+| 1002 | Vijay        | Kolhapur     | 644242322       | vijay@gmail.com |
+| 1003 | ay           | Nashik       | 644242322       | vijay@gmail.com |
+| 1002 | Vijay        | Kolhapur     | 644242322       | vijay@gmail.com |
+| 1002 | Vijay        | Kolhapur     | 644242322       | vijay@gmail.com |
++------+--------------+--------------+-----------------+-----------------+
+5 rows in set (0.00 sec)
+
+mysql> delete from student where student_contact = '644242322';
+Query OK, 4 rows affected (0.01 sec)
+
+mysql> select *from student;
++------+--------------+--------------+-----------------+----------------+
+| sid  | student_Name | student_City | student_Contact | student_Email  |
++------+--------------+--------------+-----------------+----------------+
+| 1001 | Ajay         | PUNE         | 8284242322      | ajay@gmail.com |
++------+--------------+--------------+-----------------+----------------+
+1 row in set (0.00 sec)
+
+mysql> insert into student values (1002,'Vijay','Kolhapur','644242322','vijay@gmail.com') ;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into student values (1003,'Sanjay','Nashik','644242422','Sanjay@gmail.com') ;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into student values (1004,'Ram','Nashik','666242422','ram@gmail.com') ;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select *From student ;
++------+--------------+--------------+-----------------+------------------+
+| sid  | student_Name | student_City | student_Contact | student_Email    |
++------+--------------+--------------+-----------------+------------------+
+| 1001 | Ajay         | PUNE         | 8284242322      | ajay@gmail.com   |
+| 1002 | Vijay        | Kolhapur     | 644242322       | vijay@gmail.com  |
+| 1003 | Sanjay       | Nashik       | 644242422       | Sanjay@gmail.com |
+| 1004 | Ram          | Nashik       | 666242422       | ram@gmail.com    |
++------+--------------+--------------+-----------------+------------------+
+4 rows in set (0.00 sec)
+
+mysql> select student_Name,student_City from student where student_City='Nashik';
++--------------+--------------+
+| student_Name | student_City |
++--------------+--------------+
+| Sanjay       | Nashik       |
+| Ram          | Nashik       |
++--------------+--------------+
+2 rows in set (0.00 sec)
+
+mysql> update student set student_Contact =  '55555555' where sid = 1003;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select *From student ;
++------+--------------+--------------+-----------------+------------------+
+| sid  | student_Name | student_City | student_Contact | student_Email    |
++------+--------------+--------------+-----------------+------------------+
+| 1001 | Ajay         | PUNE         | 8284242322      | ajay@gmail.com   |
+| 1002 | Vijay        | Kolhapur     | 644242322       | vijay@gmail.com  |
+| 1003 | Sanjay       | Nashik       | 55555555        | Sanjay@gmail.com |
+| 1004 | Ram          | Nashik       | 666242422       | ram@gmail.com    |
++------+--------------+--------------+-----------------+------------------+
+4 rows in set (0.00 sec)
+
+mysql> alter table student drop column student_Contact;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select *From student ;
++------+--------------+--------------+------------------+
+| sid  | student_Name | student_City | student_Email    |
++------+--------------+--------------+------------------+
+| 1001 | Ajay         | PUNE         | ajay@gmail.com   |
+| 1002 | Vijay        | Kolhapur     | vijay@gmail.com  |
+| 1003 | Sanjay       | Nashik       | Sanjay@gmail.com |
+| 1004 | Ram          | Nashik       | ram@gmail.com    |
++------+--------------+--------------+------------------+
+4 rows in set (0.00 sec)
+
+
+
+
+ show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.01 sec)
+
+mysql> create database April2024
+    -> ;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| april2024          |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> use april2024;
+Database changed
+mysql> ^C
+mysql>
+
+
+
+
+
+
+
+
+
+
+mysql>

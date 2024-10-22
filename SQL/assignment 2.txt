@@ -1,0 +1,55 @@
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| april2024          |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> use april2024;
+Database changed
+mysql> create table employee(fieldid int(5),Ename varchar(100), Eemail varchar(100), Esal varchar(200), Econtact varchar(20));
+ERROR 1050 (42S01): Table 'employee' already exists
+mysql> create table Employee(fieldid int(5),Ename varchar(100), Eemail varchar(100), Esal varchar(200), Econtact varchar(20));
+ERROR 1050 (42S01): Table 'employee' already exists
+mysql> create table employee1(fieldid int(5),Ename varchar(100), Eemail varchar(100), Esal varchar(200), Econtact varchar(20));
+Query OK, 0 rows affected, 1 warning (0.03 sec)
+
+mysql> select *from employee1;
+Empty set (0.01 sec)
+
+mysql> desc employee1;
++----------+--------------+------+-----+---------+-------+
+| Field    | Type         | Null | Key | Default | Extra |
++----------+--------------+------+-----+---------+-------+
+| fieldid  | int          | YES  |     | NULL    |       |
+| Ename    | varchar(100) | YES  |     | NULL    |       |
+| Eemail   | varchar(100) | YES  |     | NULL    |       |
+| Esal     | varchar(200) | YES  |     | NULL    |       |
+| Econtact | varchar(20)  | YES  |     | NULL    |       |
++----------+--------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> alter table employee1 add column addresss varchar(200);
+Query OK, 0 rows affected (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc employee1;
++----------+--------------+------+-----+---------+-------+
+| Field    | Type         | Null | Key | Default | Extra |
++----------+--------------+------+-----+---------+-------+
+| fieldid  | int          | YES  |     | NULL    |       |
+| Ename    | varchar(100) | YES  |     | NULL    |       |
+| Eemail   | varchar(100) | YES  |     | NULL    |       |
+| Esal     | varchar(200) | YES  |     | NULL    |       |
+| Econtact | varchar(20)  | YES  |     | NULL    |       |
+| addresss | varchar(200) | YES  |     | NULL    |       |
++----------+--------------+------+-----+---------+-------+
+6 rows in set (0.01 sec)
+
+mysql>
+

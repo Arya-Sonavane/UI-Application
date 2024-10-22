@@ -1,0 +1,286 @@
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 12
+Server version: 9.0.0 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| april2024          |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.12 sec)
+
+mysql> use april2024;
+Database changed
+mysql> create table student(studid(int 5),studname(varchar 200),studmail(varchar 200),studcontact(varchar 20),studaddress(varchar 100));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(int 5),studname(varchar 200),studmail(varchar 200),studcontact(varchar 20),stud' at line 1
+mysql> create table student(studid int (5),studname(varchar 200),studmail(varchar 200),studcontact(varchar 20),studaddress(varchar 100));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(varchar 200),studmail(varchar 200),studcontact(varchar 20),studaddress(varchar ' at line 1
+mysql> create table student(studid int (5),studname varchar(200),studmail varchar(200),studcontact varchar(20),studaddress varchar(100));
+Query OK, 0 rows affected, 1 warning (0.24 sec)
+
+mysql> desc student;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| studid      | int          | YES  |     | NULL    |       |
+| studname    | varchar(200) | YES  |     | NULL    |       |
+| studmail    | varchar(200) | YES  |     | NULL    |       |
+| studcontact | varchar(20)  | YES  |     | NULL    |       |
+| studaddress | varchar(100) | YES  |     | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+5 rows in set (0.04 sec)
+
+mysql> insert into student values(1,'rio','aa@gmail','5653','pune');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into student values(2, 'Arya', 'arya@gmail.com','9075089505','pune'),(3, 'Vrushali', 'vrushali@gmail.com', '9075089505','pune'),(4, 'Tejaswini','tejaswini@gmail.com','6677','pune'),(5,'vrush','vrush@gmail.com','9075','pune'),(5,'mayuri','mayuri@gmail.com','90750','pune'),(6,'mayur','mayur@gmail.com','907589','pune');
+Query OK, 6 rows affected (0.01 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+
+mysql> select *from student;
++--------+-----------+---------------------+-------------+-------------+
+| studid | studname  | studmail            | studcontact | studaddress |
++--------+-----------+---------------------+-------------+-------------+
+|      1 | rio       | aa@gmail            | 5653        | pune        |
+|      2 | Arya      | arya@gmail.com      | 9075089505  | pune        |
+|      3 | Vrushali  | vrushali@gmail.com  | 9075089505  | pune        |
+|      4 | Tejaswini | tejaswini@gmail.com | 6677        | pune        |
+|      5 | vrush     | vrush@gmail.com     | 9075        | pune        |
+|      5 | mayuri    | mayuri@gmail.com    | 90750       | pune        |
+|      6 | mayur     | mayur@gmail.com     | 907589      | pune        |
++--------+-----------+---------------------+-------------+-------------+
+7 rows in set (0.01 sec)
+
+mysql> select studname from student;
++-----------+
+| studname  |
++-----------+
+| rio       |
+| Arya      |
+| Vrushali  |
+| Tejaswini |
+| vrush     |
+| mayuri    |
+| mayur     |
++-----------+
+7 rows in set (0.00 sec)
+
+mysql> select studname,studemail,studcontact from student;
+ERROR 1054 (42S22): Unknown column 'studemail' in 'field list'
+mysql> select (studname,studemail,studcontact) from student;
+ERROR 1054 (42S22): Unknown column 'studemail' in 'field list'
+mysql> select (studname,studmail,studcontact) from student;
+ERROR 1241 (21000): Operand should contain 1 column(s)
+mysql> select studname,studmail,studcontact from student;
++-----------+---------------------+-------------+
+| studname  | studmail            | studcontact |
++-----------+---------------------+-------------+
+| rio       | aa@gmail            | 5653        |
+| Arya      | arya@gmail.com      | 9075089505  |
+| Vrushali  | vrushali@gmail.com  | 9075089505  |
+| Tejaswini | tejaswini@gmail.com | 6677        |
+| vrush     | vrush@gmail.com     | 9075        |
+| mayuri    | mayuri@gmail.com    | 90750       |
+| mayur     | mayur@gmail.com     | 907589      |
++-----------+---------------------+-------------+
+7 rows in set (0.00 sec)
+mysql> delete from student where studid='1';
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select *from student;
++--------+-----------+---------------------+-------------+-------------+
+| studid | studname  | studmail            | studcontact | studaddress |
++--------+-----------+---------------------+-------------+-------------+
+|      2 | Arya      | arya@gmail.com      | 9075089505  | pune        |
+|      3 | Vrushali  | vrushali@gmail.com  | 9075089505  | pune        |
+|      4 | Tejaswini | tejaswini@gmail.com | 6677        | pune        |
+|      5 | vrush     | vrush@gmail.com     | 9075        | pune        |
+|      5 | mayuri    | mayuri@gmail.com    | 90750       | pune        |
+|      6 | mayur     | mayur@gmail.com     | 907589      | pune        |
++--------+-----------+---------------------+-------------+-------------+
+6 rows in set (0.00 sec)
+
+mysql> delete from student where studname='mayur';
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select *from student;
++--------+-----------+---------------------+-------------+-------------+
+| studid | studname  | studmail            | studcontact | studaddress |
++--------+-----------+---------------------+-------------+-------------+
+|      2 | Arya      | arya@gmail.com      | 9075089505  | pune        |
+|      3 | Vrushali  | vrushali@gmail.com  | 9075089505  | pune        |
+|      4 | Tejaswini | tejaswini@gmail.com | 6677        | pune        |
+|      5 | vrush     | vrush@gmail.com     | 9075        | pune        |
+|      5 | mayuri    | mayuri@gmail.com    | 90750       | pune        |
++--------+-----------+---------------------+-------------+-------------+
+5 rows in set (0.00 sec)
+
+mysql> update student set studid=6 where studname='mayuri';
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select *from student;
++--------+-----------+---------------------+-------------+-------------+
+| studid | studname  | studmail            | studcontact | studaddress |
++--------+-----------+---------------------+-------------+-------------+
+|      2 | Arya      | arya@gmail.com      | 9075089505  | pune        |
+|      3 | Vrushali  | vrushali@gmail.com  | 9075089505  | pune        |
+|      4 | Tejaswini | tejaswini@gmail.com | 6677        | pune        |
+|      5 | vrush     | vrush@gmail.com     | 9075        | pune        |
+|      6 | mayuri    | mayuri@gmail.com    | 90750       | pune        |
++--------+-----------+---------------------+-------------+-------------+
+5 rows in set (0.00 sec)
+
+mysql> update student set studcontact='5555555' where studid=5;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select *from student;
++--------+-----------+---------------------+-------------+-------------+
+| studid | studname  | studmail            | studcontact | studaddress |
++--------+-----------+---------------------+-------------+-------------+
+|      2 | Arya      | arya@gmail.com      | 9075089505  | pune        |
+|      3 | Vrushali  | vrushali@gmail.com  | 9075089505  | pune        |
+|      4 | Tejaswini | tejaswini@gmail.com | 6677        | pune        |
+|      5 | vrush     | vrush@gmail.com     | 5555555     | pune        |
+|      6 | mayuri    | mayuri@gmail.com    | 90750       | pune        |
++--------+-----------+---------------------+-------------+-------------+
+5 rows in set (0.00 sec)
+
+mysql> update student set studname='vrushali_Ubale',studmail='vrushaliubale@gmail.com',studcontact='888888' where studid=3;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select *from student;
++--------+----------------+-------------------------+-------------+-------------+
+| studid | studname       | studmail                | studcontact | studaddress |
++--------+----------------+-------------------------+-------------+-------------+
+|      2 | Arya           | arya@gmail.com          | 9075089505  | pune        |
+|      3 | vrushali_Ubale | vrushaliubale@gmail.com | 888888      | pune        |
+|      4 | Tejaswini      | tejaswini@gmail.com     | 6677        | pune        |
+|      5 | vrush          | vrush@gmail.com         | 5555555     | pune        |
+|      6 | mayuri         | mayuri@gmail.com        | 90750       | pune        |
++--------+----------------+-------------------------+-------------+-------------+
+5 rows in set (0.00 sec)
+
+mysql> insert into student values (7,'mayur','mayur@gmail.com','878787878', 'mulshi'),(8,'avani','avani@gmail.com','66666','pune');
+Query OK, 2 rows affected (0.01 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select *from student;
++--------+----------------+-------------------------+-------------+-------------+
+| studid | studname       | studmail                | studcontact | studaddress |
++--------+----------------+-------------------------+-------------+-------------+
+|      2 | Arya           | arya@gmail.com          | 9075089505  | pune        |
+|      3 | vrushali_Ubale | vrushaliubale@gmail.com | 888888      | pune        |
+|      4 | Tejaswini      | tejaswini@gmail.com     | 6677        | pune        |
+|      5 | vrush          | vrush@gmail.com         | 5555555     | pune        |
+|      6 | mayuri         | mayuri@gmail.com        | 90750       | pune        |
+|      7 | mayur          | mayur@gmail.com         | 878787878   | mulshi      |
+|      8 | avani          | avani@gmail.com         | 66666       | pune        |
++--------+----------------+-------------------------+-------------+-------------+
+7 rows in set (0.00 sec)
+
+mysql> delete from student where studcontact='66666', studaddress='pune';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ', studaddress='pune'' at line 1
+mysql> delete from student where studid=8;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select *from student;
++--------+----------------+-------------------------+-------------+-------------+
+| studid | studname       | studmail                | studcontact | studaddress |
++--------+----------------+-------------------------+-------------+-------------+
+|      2 | Arya           | arya@gmail.com          | 9075089505  | pune        |
+|      3 | vrushali_Ubale | vrushaliubale@gmail.com | 888888      | pune        |
+|      4 | Tejaswini      | tejaswini@gmail.com     | 6677        | pune        |
+|      5 | vrush          | vrush@gmail.com         | 5555555     | pune        |
+|      6 | mayuri         | mayuri@gmail.com        | 90750       | pune        |
+|      7 | mayur          | mayur@gmail.com         | 878787878   | mulshi      |
++--------+----------------+-------------------------+-------------+-------------+
+6 rows in set (0.00 sec)
+
+mysql>
+
+-------------------------------------------------------------------------------------------------------
+assignment 3-query no 10
+
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| april2024          |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.01 sec)
+
+mysql> use april2024;
+Database changed
+mysql> create table student(studid int (5),studname varchar(200),studmail varchar(200),studcontact varchar(20),studaddress varchar(100));
+ERROR 1050 (42S01): Table 'student' already exists
+mysql> create table employee(studid int (6),studname varchar(200),studmail varchar(200),studcontact varchar(20),studaddress varchar(100));
+Query OK, 0 rows affected, 1 warning (0.04 sec)
+
+mysql> select *from student;
++--------+----------------+-------------------------+-------------+-------------+
+| studid | studname       | studmail                | studcontact | studaddress |
++--------+----------------+-------------------------+-------------+-------------+
+|      2 | Arya           | arya@gmail.com          | 9075089505  | pune        |
+|      3 | vrushali_Ubale | vrushaliubale@gmail.com | 888888      | pune        |
+|      4 | Tejaswini      | tejaswini@gmail.com     | 6677        | pune        |
+|      5 | vrush          | vrush@gmail.com         | 5555555     | pune        |
+|      6 | mayuri         | mayuri@gmail.com        | 90750       | pune        |
+|      7 | mayur          | mayur@gmail.com         | 878787878   | mulshi      |
++--------+----------------+-------------------------+-------------+-------------+
+6 rows in set (0.00 sec)
+
+mysql> select *from employee;
+Empty set (0.01 sec)
+
+mysql> desc employee;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| studid      | int          | YES  |     | NULL    |       |
+| studname    | varchar(200) | YES  |     | NULL    |       |
+| studmail    | varchar(200) | YES  |     | NULL    |       |
+| studcontact | varchar(20)  | YES  |     | NULL    |       |
+| studaddress | varchar(100) | YES  |     | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+5 rows in set (0.02 sec)
+
+mysql> insert into employee select *from student;
+Query OK, 6 rows affected (0.01 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+
+mysql> select *from employee;
++--------+----------------+-------------------------+-------------+-------------+
+| studid | studname       | studmail                | studcontact | studaddress |
++--------+----------------+-------------------------+-------------+-------------+
+|      2 | Arya           | arya@gmail.com          | 9075089505  | pune        |
+|      3 | vrushali_Ubale | vrushaliubale@gmail.com | 888888      | pune        |
+|      4 | Tejaswini      | tejaswini@gmail.com     | 6677        | pune        |
+|      5 | vrush          | vrush@gmail.com         | 5555555     | pune        |
+|      6 | mayuri         | mayuri@gmail.com        | 90750       | pune        |
+|      7 | mayur          | mayur@gmail.com         | 878787878   | mulshi      |
++--------+----------------+-------------------------+-------------+-------------+
+6 rows in set (0.00 sec)
+
+mysql>

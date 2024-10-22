@@ -1,0 +1,33 @@
+import java.util.*;
+public class DuplicateElements
+{
+     public static void main(String x[])
+     {
+              Scanner xyz=new Scanner(System.in);
+              int a[];
+              a=new a[3];
+              System.out.println("Enter Values");
+ 
+              for(i=0; i<=a.lengtgh; i++)
+              {
+                   a[i]= xyz.nextInt();
+              }
+                
+              for(i=0; i<=a.length; i++)
+              {
+                    int count=0;
+               for(j=0; j<=a.length; j++)
+               {
+                     if(a[j]==a[i])
+                     {
+                     count++;
+                     }
+                }
+                      
+               System.out.printf(b!=a[i]? a[i]+ "count is"+ count)
+              }
+              
+
+      }
+
+}

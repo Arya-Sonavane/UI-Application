@@ -1,0 +1,258 @@
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 10
+Server version: 8.0.39 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| db1                |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+7 rows in set (0.00 sec)
+
+mysql> use sys;
+Database changed
+mysql> create table stud(Name varchar(20), Mail varchar(10), id int(5));
+Query OK, 0 rows affected, 1 warning (0.05 sec)
+
+mysql> desc stud;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| Name  | varchar(20) | YES  |     | NULL    |       |
+| Mail  | varchar(10) | YES  |     | NULL    |       |
+| id    | int         | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> alter table stud add column(contact varchar(10),email varchar(20));
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table stud add column(salary varchar(100));
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc stud;
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| Name    | varchar(20)  | YES  |     | NULL    |       |
+| Mail    | varchar(10)  | YES  |     | NULL    |       |
+| id      | int          | YES  |     | NULL    |       |
+| contact | varchar(10)  | YES  |     | NULL    |       |
+| email   | varchar(20)  | YES  |     | NULL    |       |
+| salary  | varchar(100) | YES  |     | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> alter table stud drop column email;
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc stud;
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| Name    | varchar(20)  | YES  |     | NULL    |       |
+| Mail    | varchar(10)  | YES  |     | NULL    |       |
+| id      | int          | YES  |     | NULL    |       |
+| contact | varchar(10)  | YES  |     | NULL    |       |
+| salary  | varchar(100) | YES  |     | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> insert into stud values('Arya','arya@gmail.com','1','90909999','100000');
+ERROR 1406 (22001): Data too long for column 'Mail' at row 1
+mysql> insert into stud values('Arya','aryagmail.com','1','90909999','100000');
+ERROR 1406 (22001): Data too long for column 'Mail' at row 1
+mysql> insert into stud values('Arya','aryagmil','1','90909999','100000');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into stud values('Divya','Divyagmail','2','444444449','200000');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into stud values('aarati','aaratiagmail','3','5656449','300000');
+ERROR 1406 (22001): Data too long for column 'Mail' at row 1
+mysql> insert into stud values('arati','aarati','3','5656449','300000');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into stud values('teju','teju','4','856449','400000');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into stud values('lavanya','lagmail','5','9999049','400000');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select *from stud;
++---------+------------+------+-----------+--------+
+| Name    | Mail       | id   | contact   | salary |
++---------+------------+------+-----------+--------+
+| Arya    | aryagmil   |    1 | 90909999  | 100000 |
+| Divya   | Divyagmail |    2 | 444444449 | 200000 |
+| arati   | aarati     |    3 | 5656449   | 300000 |
+| teju    | teju       |    4 | 856449    | 400000 |
+| lavanya | lagmail    |    5 | 9999049   | 400000 |
++---------+------------+------+-----------+--------+
+5 rows in set (0.00 sec)
+
+mysql> alter table stud rename column salary to sal;
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select *from stud;
++---------+------------+------+-----------+--------+
+| Name    | Mail       | id   | contact   | sal    |
++---------+------------+------+-----------+--------+
+| Arya    | aryagmil   |    1 | 90909999  | 100000 |
+| Divya   | Divyagmail |    2 | 444444449 | 200000 |
+| arati   | aarati     |    3 | 5656449   | 300000 |
+| teju    | teju       |    4 | 856449    | 400000 |
+| lavanya | lagmail    |    5 | 9999049   | 400000 |
++---------+------------+------+-----------+--------+
+5 rows in set (0.00 sec)
+
+mysql> insert into stud values('Shravani','shravanigmail','6','9075089','5000000');
+ERROR 1406 (22001): Data too long for column 'Mail' at row 1
+mysql> insert into stud values('Shravani','shragmail','6','9075089','5000000');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select *from stud;
++----------+------------+------+-----------+---------+
+| Name     | Mail       | id   | contact   | sal     |
++----------+------------+------+-----------+---------+
+| Arya     | aryagmil   |    1 | 90909999  | 100000  |
+| Divya    | Divyagmail |    2 | 444444449 | 200000  |
+| arati    | aarati     |    3 | 5656449   | 300000  |
+| teju     | teju       |    4 | 856449    | 400000  |
+| lavanya  | lagmail    |    5 | 9999049   | 400000  |
+| Shravani | shragmail  |    6 | 9075089   | 5000000 |
++----------+------------+------+-----------+---------+
+6 rows in set (0.00 sec)
+
+mysql> select id,name, from stud;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from stud' at line 1
+mysql> select id,name from stud;
++------+----------+
+| id   | name     |
++------+----------+
+|    1 | Arya     |
+|    2 | Divya    |
+|    3 | arati    |
+|    4 | teju     |
+|    5 | lavanya  |
+|    6 | Shravani |
++------+----------+
+6 rows in set (0.00 sec)
+
+mysql> select id,name,mail from stud;
++------+----------+------------+
+| id   | name     | mail       |
++------+----------+------------+
+|    1 | Arya     | aryagmil   |
+|    2 | Divya    | Divyagmail |
+|    3 | arati    | aarati     |
+|    4 | teju     | teju       |
+|    5 | lavanya  | lagmail    |
+|    6 | Shravani | shragmail  |
++------+----------+------------+
+6 rows in set (0.00 sec)
+
+mysql> select id,name,sal from stud;
++------+----------+---------+
+| id   | name     | sal     |
++------+----------+---------+
+|    1 | Arya     | 100000  |
+|    2 | Divya    | 200000  |
+|    3 | arati    | 300000  |
+|    4 | teju     | 400000  |
+|    5 | lavanya  | 400000  |
+|    6 | Shravani | 5000000 |
++------+----------+---------+
+6 rows in set (0.00 sec)
+
+mysql> delete from stud where name='shravani';
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select *from stud;
++---------+------------+------+-----------+--------+
+| Name    | Mail       | id   | contact   | sal    |
++---------+------------+------+-----------+--------+
+| Arya    | aryagmil   |    1 | 90909999  | 100000 |
+| Divya   | Divyagmail |    2 | 444444449 | 200000 |
+| arati   | aarati     |    3 | 5656449   | 300000 |
+| teju    | teju       |    4 | 856449    | 400000 |
+| lavanya | lagmail    |    5 | 9999049   | 400000 |
++---------+------------+------+-----------+--------+
+5 rows in set (0.00 sec)
+
+mysql> update stud name='Ragini' where id='3';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '='Ragini' where id='3'' at line 1
+mysql> update stud set name='Ragini' where id='3';
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select *from stud;
++---------+------------+------+-----------+--------+
+| Name    | Mail       | id   | contact   | sal    |
++---------+------------+------+-----------+--------+
+| Arya    | aryagmil   |    1 | 90909999  | 100000 |
+| Divya   | Divyagmail |    2 | 444444449 | 200000 |
+| Ragini  | aarati     |    3 | 5656449   | 300000 |
+| teju    | teju       |    4 | 856449    | 400000 |
+| lavanya | lagmail    |    5 | 9999049   | 400000 |
++---------+------------+------+-----------+--------+
+5 rows in set (0.00 sec)
+
+mysql> update stud set mail='Ragini' where id='3';
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select *from stud;
++---------+------------+------+-----------+--------+
+| Name    | Mail       | id   | contact   | sal    |
++---------+------------+------+-----------+--------+
+| Arya    | aryagmil   |    1 | 90909999  | 100000 |
+| Divya   | Divyagmail |    2 | 444444449 | 200000 |
+| Ragini  | Ragini     |    3 | 5656449   | 300000 |
+| teju    | teju       |    4 | 856449    | 400000 |
+| lavanya | lagmail    |    5 | 9999049   | 400000 |
++---------+------------+------+-----------+--------+
+5 rows in set (0.00 sec)
+
+mysql> update stud set mail='Ragini@' where id='3';
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select *from stud;
++---------+------------+------+-----------+--------+
+| Name    | Mail       | id   | contact   | sal    |
++---------+------------+------+-----------+--------+
+| Arya    | aryagmil   |    1 | 90909999  | 100000 |
+| Divya   | Divyagmail |    2 | 444444449 | 200000 |
+| Ragini  | Ragini@    |    3 | 5656449   | 300000 |
+| teju    | teju       |    4 | 856449    | 400000 |
+| lavanya | lagmail    |    5 | 9999049   | 400000 |
++---------+------------+------+-----------+--------+
+5 rows in set (0.00 sec)
+
+mysql> ------------------------------------------------------------------
+    ->
+    -> create table ss();
+
+
+

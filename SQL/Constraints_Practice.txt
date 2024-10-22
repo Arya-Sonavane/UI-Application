@@ -1,0 +1,72 @@
+mysql> show tables ;
++---------------+
+| Tables_in_db1 |
++---------------+
+| student       |
++---------------+
+1 row in set (0.00 sec)
+
+mysql> select *from student ;
++------+--------------+--------------+------------------+
+| sid  | student_Name | student_City | student_Email    |
++------+--------------+--------------+------------------+
+| 1001 | Ajay         | PUNE         | ajay@gmail.com   |
+| 1002 | Vijay        | Kolhapur     | vijay@gmail.com  |
+| 1003 | Sanjay       | Nashik       | Sanjay@gmail.com |
+| 1004 | Ram          | Nashik       | ram@gmail.com    |
++------+--------------+--------------+------------------+
+4 rows in set (0.00 sec)
+
+mysql> create table Employee (eid int(5) primary key auto_increment,Employee_Name varchar(100) not null,Mob_No varchar(100) not nullunique,email varchar(100) not null unique  ) ;
+Query OK, 0 rows affected, 1 warning (0.04 sec)
+
+mysql> desc employee;
++---------------+--------------+------+-----+---------+----------------+
+| Field         | Type         | Null | Key | Default | Extra          |
++---------------+--------------+------+-----+---------+----------------+
+| eid           | int          | NO   | PRI | NULL    | auto_increment |
+| Employee_Name | varchar(100) | NO   |     | NULL    |                |
+| Mob_No        | varchar(100) | NO   | UNI | NULL    |                |
+| email         | varchar(100) | NO   | UNI | NULL    |                |
++---------------+--------------+------+-----+---------+----------------+
+4 rows in set (0.00 sec)
+
+mysql> +-----------------+--------------+------+-----+---------+-------+
+    -> | Field           | Type         | Null | Key | Default | Extra |
+    -> +-----------------+--------------+------+-----+---------+-------+
+    -> | sid             | int          | YES  |     | NULL    |       |
+    -> | student_Name    | varchar(100) | YES  |     | NULL    |       |
+    -> | student_City    | varchar(100) | YES  |     | NULL    |       |
+    -> | student_Contact | varchar(100) | YES  |     | NULL    |       |
+    -> | student_Email   | varchar(100) | YES  |     | NULL    |       |
+    -> +-----------------+--------------+------+-----+---------+-------+
+    -> ^C
+mysql> insert into employee values ('0','Sanjay','9898748583','sanjay@gmail.com');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into employee values ('0','Vijay','9998748583','vijay@gmail.com');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select *from employee;
++-----+---------------+------------+------------------+
+| eid | Employee_Name | Mob_No     | email            |
++-----+---------------+------------+------------------+
+|   1 | Sanjay        | 9898748583 | sanjay@gmail.com |
+|   2 | Vijay         | 9998748583 | vijay@gmail.com  |
++-----+---------------+------------+------------------+
+2 rows in set (0.00 sec)
+
+mysql> insert into employee values ('0','RAM','9997778583','ram@gmail.com');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select *from employee;
++-----+---------------+------------+------------------+
+| eid | Employee_Name | Mob_No     | email            |
++-----+---------------+------------+------------------+
+|   1 | Sanjay        | 9898748583 | sanjay@gmail.com |
+|   2 | Vijay         | 9998748583 | vijay@gmail.com  |
+|   3 | RAM           | 9997778583 | ram@gmail.com    |
++-----+---------------+------------+------------------+
+3 rows in set (0.00 sec)
+
+mysql>
