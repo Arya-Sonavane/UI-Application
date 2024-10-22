@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+<style>
+    *
+    {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body
+    {
+        display: flex;
+        flex-direction: column;
+    }
+    .container
+    {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        /* border: 1px solid #000; */
+        width: 70%;
+        min-height: 200px;
+        margin: auto;
+        /* padding: 10px; */
+        gap: 10px;
+    }
+    .header
+    {   width: 80%;
+        margin: auto;
+        text-align: center;
+        padding: 50px 20px;
+        /* border:1px solid brown; */
+        
+        
+    }
+    .header h2
+    {
+       font-size: 30px;
+       margin-bottom: 10px;
+    
+    }
+   p
+   {
+    color: #666;
+    text-align: justify;
+    text-align: center;
+   }
+    
+
+    .main-header
+    {
+        display: flex;
+        direction: row;
+        flex-basis: 45%;
+        /* border: solid 1px green; */
+        width: 99%;
+        
+        height: 200px;
+        
+    }
+    .child
+    {
+     width: 40%;
+    height: 200px;
+    /* border: 1px solid yellow; */
+    flex-basis: 48%;
+    text-align: center;
+    background-color: #2D2D33;
+    color: white;
+    
+    }
+    
+     .child img
+    {   width: 100%;
+        height: 100%;
+        object-fit: cover;
+        
+    }
+    .info
+    {
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       gap: 9px;
+       
+    }
+    .info i
+    {
+        
+        text-align: center;
+        margin-top: 30px;
+        padding: 10px;
+        
+
+    }
+    .information p
+    {
+        font-size: 15px;
+        margin: 5px ;
+        color: white;
+    }
+</style>
+<body>
+    <div class="container">
+
+       <div class="header">
+
+        <h2>CONTACT US</h2>
+
+        <p>We align leaders around a shared purpose and strategic story that catalizes their buisness and brand to take action.</p>
+
+       </div>
+
+       <div class="main-header">
+
+        <div class="child">
+
+            <img src="images/Screenshot (6).png" >
+
+        </div>
+
+        <div class="child">
+
+            <div class="info">
+                <i class="fa-solid fa-envelope"></i>
+
+            </div>
+
+            <div class="information">
+                <p>EMAIL:</p>
+                <p>hello@company.com</p>
+                <p>support@company.com</p>
+
+            </div>
+            
+        </div>
+
+        <div class="child">
+
+            <img src="images/Screenshot (7).png">
+
+
+        </div>
+
+        <div class="child">
+
+            <div class="info">
+                <i class="fa-solid fa-location-dot"></i>
+            </div>
+
+            <div class="information">
+                <p>ADDRESS:</p>
+                <p>121 Rock Street, 21 Avenue, New York, NY 921103-9000</p>
+            </div>
+
+        </div>
+
+       </div>
+    </div>
+
+    
+</body>
+</html>

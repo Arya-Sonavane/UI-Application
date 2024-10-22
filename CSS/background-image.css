@@ -1,0 +1,123 @@
+*
+{
+    padding:0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.box
+{
+   
+    border: 1px solid #000;
+
+    /* background-image: linear-gradient(30deg, #ad5389,#3c1053); */
+    background-image: url("../images/winner-virat-kohli-hd-napyql9899xtvwxe.jpg");
+    background-repeat:no-repeat;
+    /* background-size: 100% 100%;
+    background-position: bottom right;
+    object-fit: fill; */
+   background-size:cover;
+   background-repeat: no-repeat;
+   background-position: center;   
+   width: 80%;
+   margin:auto;
+  
+  
+}
+.main-header-div
+{
+    width: 100%;
+    min-height: 60px;
+}
+.main-header-div .logo
+{
+    width: 50%;
+    float: left;
+}
+.logo h1
+{
+  color: white;
+  padding: 10px;
+}
+.main-header-div .menu
+{
+    width: 50%;
+    float: right;
+}
+.menu ul
+{
+  list-style-type: none;
+  width: 100%;
+}
+.menu ul li
+{
+  display:inline-block;
+  padding-top: 17px;
+}
+.menu ul li a
+{
+    color: white;
+    text-decoration: none;
+    padding-left: 15px;
+    font: 1.1em;
+}
+.menu ul li a:hover
+{
+  background-color: beige;
+  color: black;
+}
+.info
+{
+    width: 60%;
+    min-height:  100px;
+    border: 1px solid #000;
+    margin: 120px auto;
+}
+.info .text p
+{
+    text-align:center;
+    color: white;
+    font-size: 1.7em;
+}
+.clearfix::after
+{
+    content:"" ;
+    display:block;
+    clear: both;
+}
+.imp
+{
+    color:orange;
+    text-decoration: underline;
+}
+.imp1
+{
+    color:green;
+    text-decoration: underline;
+}
+.read
+{
+    text-align: center;
+    
+}
+.read a
+{
+    width:100px;
+    height:10px;
+    padding: 2px;
+    background-color: royalblue;
+    color:white;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
+    border:none;
+}
+.read a:hover
+{
+    background-color: crimson;
+    color: white;
+}

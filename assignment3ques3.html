@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+*
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body
+{
+    display: flex;
+    direction: column;
+}
+.container
+{   display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 80%;
+    min-height: 300px;
+    border: 1px solid #000;
+    background-color: #2C2A2D;
+    margin: auto;
+    padding: 40px;
+    
+}
+.box
+{   display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: auto;
+    width: 90%;
+    min-height: 300px;
+    border: 1px solid blue;
+    flex-wrap: wrap;
+    padding: 5px;
+    gap: 5px;
+}
+.slider
+{ display: flex;
+    flex-direction: column;
+  width: 49%;
+  min-height: 300px;
+  border: 1px solid brown;
+}
+.form-fields
+{ display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 50%;
+  min-height: 300px;
+  border: 1px solid yellow;
+  background-color: whitesmoke;
+  padding: 10px;
+}
+h1
+{
+  font-size: 1em;
+  margin-bottom: 10px;
+}
+
+.child
+{
+    display: flex;
+    gap: 10px;
+}
+input
+{
+    width: 150px;
+    height: 20px;
+}
+input[type=text]
+{
+    width: 100%;
+    height: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    
+}
+.address b {
+    text-align: left;
+}
+.location
+{
+    display: flex;
+    gap: 10px;
+    
+}
+input[type=radio]
+{
+    display: flex;
+    gap: 10px;
+    width: 40%;
+    height:20px;
+    
+}
+.address
+{
+    margin-top: 10px;
+    display: flex;
+    margin: 10px;
+}
+
+
+input[type=button]
+{
+    width: 100px;
+    margin-top: 10px;
+    margin-left: auto;
+    background-color: orangered;
+    color: white;
+}
+</style>
+<body>
+    <div class="container">
+
+        <div class="box">
+
+            <div class="slider">
+            <img src="images/Screenshot (5).png" >
+
+            </div>
+
+            <div class="form-fields">
+                <h1>STUDENT REGISTRATION FORM</h1>
+
+                <div class="child">
+                    <b>Name:</b>
+                   <input type="text">
+
+                   <b>Father Name:</b>
+                   <input type="text">
+                </div>
+
+                <b>Address:</b>
+                <input type="text">
+
+                <div class="address">
+                    <b>Gender</b>
+                    <input type="radio" name="Gender" value="male">Male
+                    <input type="radio" name="Gender" value="Female">Female
+                </div>
+
+                <div class="location">
+                    <b>State:</b>
+                    <input type="text">
+
+                    <b>City:</b>
+                    <input type="text">
+                </div>
+
+                <b>DOB:</b>
+                <input type="text">
+
+                <b>Pincode:</b>
+                <input type="text">
+
+                <b>Course</b>
+                <input type="text">
+
+                <b>Email-id</b>
+                <input type="text">
+                 
+                <input type="button" value="Submit Form">
+
+            </div>
+
+
+        </div>
+    </div>
+</body>
+</html>

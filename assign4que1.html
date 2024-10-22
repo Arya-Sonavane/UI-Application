@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *
+    {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body
+    {
+        display: flex;
+        flex-direction: column;
+    }
+    .container
+    {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        min-height:600px ;
+        /* border: 1px solid #000; */
+        margin: auto;
+        /* padding: 10px; */
+        /* gap: 5px;  */
+        background-image:url(images/image99.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .header
+    {   display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 50px;
+        /* border: 1px solid brown; */
+        justify-content: center;
+        text-align: center;
+        background-color: white;
+        gap: 1px;
+        
+        
+        
+    }
+    
+    .main-content
+    {
+        display: flex;
+        flex-direction: row;
+        flex-basis: 50%;
+        width: 100%;
+        height: 100px;
+        /* border:1px solid green; */
+        background-color: #EBE3D3;
+        /* margin-top: 10px; */
+    }
+    .main-content ul
+    {
+      list-style-type: none;
+      margin-left: 375px;
+    }
+    .main-content ul li
+    {
+        display: inline-block;
+        padding-top: 20px;
+        font-weight: bold;
+        padding-bottom: 20px;
+        
+    }
+    .main-content ul li a
+    {
+        color: black;
+        text-decoration: none;
+        padding: 5px;
+        font-size: 400;
+        font-weight: bold;
+        
+         
+    }
+    
+    .box
+    {   
+        width: 100%;
+        height: 150px;
+        /* border:1px solid yellow; */
+        margin-top: 70px;
+    }
+    .box h1
+    {  
+        margin-top: 10px;
+       font-size: 1.5em;
+       padding-left: 20px;
+    }
+    .box p
+    {
+        margin-top: 10px;
+        padding-left: 20px;
+    }
+    input[type=button]
+    {
+        margin-top: 10px;
+        margin-left: 20px;
+        font-weight: bold;
+        width: 110px;
+        height: 30px;
+        background-color:#D5CDBE;
+        border: none;
+        outline: 0;
+    }
+
+
+</style>
+<body>
+    <div class="container">
+
+
+        <div class="header">
+            <h1>THE WOODY</h1>
+        </div>
+
+         <div class="main-content">
+
+            <ul>
+                <li><a href=""></a>Home</li>
+                <li><a href=""></a>Shop</li>
+                <li><a href=""></a>Bed</li>
+                <li><a href=""></a>Chair</li>
+                <li><a href=""></a>Sofa</li>
+                <li><a href=""></a>Contact</li>
+            </ul>
+
+         </div>
+
+         <div class="box">
+            <h1>Make Your Home Beautiful</h1>
+
+            <h1>With Modern Design</h1>
+
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora a eos fugiat, cum nemo adipisci explicabo similique recusandae mollitia quaerat expedit</p>
+
+            <input type="button" value="shop now">
+         </div>
+    </div>
+</body>
+</html>

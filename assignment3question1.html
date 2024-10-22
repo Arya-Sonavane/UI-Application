@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>Document</title>
+</head>
+<style>
+    *
+    {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body
+    {
+        display: flex;
+        flex-direction: column;
+    }
+    .container 
+    {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      width: 70%;
+      min-height: 300px;
+      margin: auto;
+      padding: 10px;
+      border: 1px solid #000;
+      background-image: url(images/64c21faa4f2a2f5ac63df849_-23.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    .main-content
+    {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        /*border: 1px solid blue;*/
+        min-height: 280px;
+        padding: 10px;
+        gap:17px;
+       
+    }
+    .slider
+    {
+       display: flex;
+       flex-direction: column;
+       width: 39%;
+       min-height: 350px;
+       /*border: 1px solid red;*/
+       border-radius: 17px;
+       background-color: #BB58E8;
+       padding: 10px;
+    }
+    h2
+    {
+      color: white;
+      font-size:small;
+      padding: 10px;
+      
+    }
+    h3
+    {
+        color: white;
+        font-size:x-large;
+        margin-left: 10px;
+        
+    }
+    p
+    {
+        color: white;
+        padding: 10px;
+        line-height: 1.6;
+        
+    }
+    a
+    {
+        color:#fff;
+        margin-left:10px;
+    }
+    .slider .icons
+    {
+        
+        font-size: 15px;
+    }
+    .icons h1
+    {    padding: 10px;
+        color: white;
+        font-size:1.5em;
+        margin-bottom: 5px;
+    }
+    .form
+    {
+        display: flex;
+        flex-direction: column;
+        width: 59%;
+       /* border: 1px solid green;*/
+        gap:20px;
+        padding: 10px;
+    }
+    .form-fields
+    {
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        width: 60%;
+        height: 60%;
+       /* border:1px solid yellowgreen;*/
+        border-radius: 20px;
+        background-color: whitesmoke;
+    
+    }
+    input[type=text]
+    {
+      width: 99%;
+      height: 30px;
+      padding: 10px;
+      margin-top: 25px;
+      border: none;
+      outline: none;
+      border-bottom:2px solid #000;
+    }
+    input[type=button]
+    {
+        width:99%;
+        height: 35px;
+        margin-top: 25px;
+        border-radius: 10px;
+        border-color: none;
+        background-color: #BB58E8;
+        color: white;
+        border:none;
+        outline:0;
+    }
+</style>
+<body>
+    <div class="container">
+
+        <div class="main-content">
+
+            <div class="slider">
+                <h2>JOIN OUR NEWSLETTER</h2>
+
+                <h3>Nam ultrices ultrices nec<h3>
+                <h3> tortor pulvinar esteras<h3>
+                <h3> loremips est orem</h3>
+
+                <p>3045 10 sunrize Avenue, 123-456-7890<br>
+                  Mon - Fri: 9:00 am - 8:00 pm<br>
+                  Sat - Sun: 9:00 am - 10 pm</p>
+
+                  <a href="https://www.esbnyc.com/contact-us">contacts@esbnyc.com</a>
+
+                  <div class="icons">
+
+                    <h1>Follow Us</h1>
+
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fa-brands fa-pinterest-p"></i></a>
+
+                  </div>
+
+                  <p>@2022 Privacy policy</p>
+                  <p>IMAGE FROM FREEPIK</p>
+
+            </div>
+
+            <div class="form">
+
+                <div class="form-fields">
+                    
+                        <input type="text" class="One" placeholder="Enter Your Name">
+                
+                        <input type="text" class="One" placeholder="Enter a valid email address">
+
+                        <input type="text" class="One" placeholder="Enter your message">
+
+                        <input type="button" value="S U B M I T">
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

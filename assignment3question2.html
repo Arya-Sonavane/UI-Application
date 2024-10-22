@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+*
+{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body
+{
+    display: flex;
+    direction: column;
+}
+.container
+{
+    display: flex;
+    direction: column;
+    flex-wrap: wrap;
+    width: 80%;
+    min-height: 300px;
+    /*border: 1px solid #000;*/
+    background-color:antiquewhite;
+    margin: auto;
+    padding: 10px;
+    border-radius: 5px;
+}
+.box
+{
+    display: flex;
+    direction: row;
+    width: 99%;
+    min-height: 300px;
+    margin: auto;
+   /* border:1px solid blue;*/
+    padding: 15px;
+    gap: 10px;
+}
+.slider
+{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  /*border: 1px solid yellow;*/
+  width: 39%;
+
+
+  
+}
+.main-content
+{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /*border: 1px solid orange;*/
+  width: 59%;
+  padding: 10px;
+  gap:10px;
+}
+.main-content .header 
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 99%;
+    height: 150px;
+   /* border:1px solid lime;*/
+    padding: 10px;
+
+}
+
+
+.parent
+{   
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width:99%;
+    min-height: 300px;
+    /*border: 1px solid brown;*/
+    padding: 10px;
+    gap: 10px;
+   
+}
+.child
+{
+    width: 40%;
+    height: 150px;
+    /*border: 1px solid green;*/
+    flex-basis: 48%;
+    text-align: center;
+    border-radius: 10px;
+    background-color: whitesmoke;
+    
+}
+.header h1
+{
+ text-align: justify;
+ color: rgb(8, 8, 148);
+}
+
+.child h2
+{
+    padding: 3px;
+    text-align:center;
+    color: rgb(13, 13, 165);
+}
+
+.child p
+{
+    padding: 3px;
+    text-align: justify;
+}
+
+
+
+
+
+</style>
+<body>
+    <div class="container">
+ 
+        <div class="box">
+
+            <div class="slider">
+
+                <img src="images/Screenshot (4).png"  width="200px" height="200px">
+
+
+            </div>
+
+            <div class="main-content">
+
+                <div class="header">
+                   <h1>Why Choose Us?</h1>
+
+             <p>We, at Third Eye innovations, are passionate about developing and inovating
+             solutions that assist our clients achieve greater heights of success. </p>
+
+                </div>
+
+                  <div class="parent">
+
+                    <div class="child">
+                        <h2>We Are Experienced</h2>
+                        <p>Our team boasts of immerse experience in
+                            field of web development We have certified
+                            professionals who are extremely creative and 
+                            technically sound We put our heart and soul into
+                            it 
+                        </p>
+
+                    </div>
+
+                    <div class="child">
+                        <h2>We Are Secure</h2>
+                        <p>At Third Eye Innovations safety is our almost
+                            priority With the multiple validations and safety
+                            extensions we provide our clients the ultimate
+                            protections against the online threats
+                        </p>
+
+                    </div>
+
+                    <div class="child">
+                        <h2>We Are Creative</h2>
+                        <p>Not two boasts of immerse experience in the
+                            field of web development We have certified 
+                            professionals who are extreamly creative 
+                            and technically sound We put our heart and soul 
+                            into it.
+                        </p>
+
+                    </div>
+
+                    <div class="child">
+                        <h2>We Are Affordable</h2>
+                        <p>We at Third eye innovations we show
+                            a combination of ultimate creatively with sound technological
+                            support certainly at an economical price
+                        </p>
+
+                    </div>
+
+                  </div>
+
+                  
+
+            </div>
+
+
+        </div>
+
+    </div>
+</body>
+</html>
